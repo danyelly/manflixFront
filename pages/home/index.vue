@@ -29,7 +29,7 @@
       <img class="logoManflix" src="manflix.png" alt="Logo" />
 
       <div class="banner-image">
-        <img :src="banner.image" alt="Movie Image" />
+        <img class="fadeClass" :src="banner.image" alt="Movie Image" />
       </div>
     </section>
 
@@ -48,9 +48,9 @@
            @click="()=>{
              banner.image = $store.state.BASE_URL + movies[2].movies[( ((index - 1) * noItems ) + (subIndex - 1))].banner;
              banner.logo = $store.state.BASE_URL + movies[2].movies[( ((index - 1) * noItems ) + (subIndex - 1))].logo ;
-             banner.description = movies[2].movies[( ((index - 1) * noItems ) + (subIndex - 1))].descricao
+             banner.description = movies[2].movies[( ((index - 1) * noItems ) + (subIndex - 1))].descricao;
             }">
-              <img 
+              <img class="fadeClass"
                 v-if="movies[2] !== undefined"           
                 :src="$store.state.BASE_URL + movies[2].movies[( ((index - 1) * noItems ) + (subIndex - 1))].foto"
               />                       
@@ -175,6 +175,17 @@ main {
         );
         mask-image: linear-gradient(to right, transparent 0%, black 11%);
       }
+    }
+  }
+  .fadeClass{
+    animation: fadeIn 5s;
+  }
+  @keyframes fadeIn{
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
     }
   }
 
