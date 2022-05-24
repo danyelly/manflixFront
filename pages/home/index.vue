@@ -36,8 +36,12 @@
     <section
       class="movies w-screen h-auto flex flex-column align-items-start justify-content-center"
     >
-      <!-- LISTAGEM CATEGORIA AÇÃO -->
-      <div class="movies-category">
+      <div class="categories"
+        v-for="(movie,id)  in movies" :key="id"
+      >
+        <!-- LISTAGEM CATEGORIA AÇÃO -->
+      <h3 v-if="movie.movies.length >= 8" class="ml-3">{{movie.category.nome}}</h3>
+      <div v-if="movie.movies.length >= 8" class="movies-category">
         <section
           v-for="index in noSection"
           :key="index"
@@ -59,6 +63,7 @@
           <a :href="'#section' + (index + 1 > noSection ? 1 : index + 1)">></a>
         </section>
 
+      </div>
       </div>
     </section>
   </main>
